@@ -1,18 +1,37 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <SideBar @CreateClass="showForm = true" />
+    <router-view class="view"></router-view>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+import SideBar from "../components/SideBar.vue";
 export default {
   name: "Home",
   components: {
-    HelloWorld,
+    SideBar,
+  },
+  data() {
+    return {
+      showForm: false,
+    };
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.home {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row column;
+}
+
+.view {
+  min-width: 0;
+  flex: 1 1 auto;
+  background-color: var(--off-white);
+  position: relative;
+}
+</style>
